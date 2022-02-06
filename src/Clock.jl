@@ -1,4 +1,4 @@
-mutable struct Clock <: System
+mutable struct Clock
     started::Base.Event
     stopped::Bool
     message_fires::Vector{Tuple{float,Function,String}}
@@ -6,19 +6,6 @@ mutable struct Clock <: System
 end
 
 
-
-
-mutable struct Clock <: System
-    started::Base.Event
-    stopped::Bool
-    #fire_sec::Bool
-    #fire_msec::Bool
-    #fire_usec::Bool
-    #fire_nsec::Bool
-    message_fires::Vector{Tuple{float,Function,String}}
-    freq::AbstractFloat
-end
-  
 Clock() = Clock(Base.Event(), true, [], 0.01667) # default frequency of approximately 60 Hz
   
   

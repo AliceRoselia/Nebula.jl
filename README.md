@@ -11,8 +11,8 @@ There are several challenges for games which are still unresolved.
 The author believes that it is time for game developers to abandon the old scripted ways of game development and embrace the new paradigm of game development. 
 * Game developers are spending more and more GPU compute power for diminishing improvement in graphics quality. This engine proposes to put a compromise on that idea, freeing up GPU for physics simulation, deep learning AI, and other features relevant to gameplay.
 * Environments are simulated and objects follow their physics systems, except for occasional "events" triggered by player or environment, turning on or off some physics systems, or doing certain "actions" such as walking, lightning strike, etc.
-*Game rules ARE the physics system. 
-*The triangle-based rasterization was designed when GPUs were less general-purpose. This engine allows the developers to explore new rendering system, or even mix them up.
+* Game rules ARE the physics system. 
+* The triangle-based rasterization was designed when GPUs were less general-purpose. This engine allows the developers to explore new rendering system, or even mix them up.
 
 
 To achieve this ambition, this library leverages several libraries in the Julia ecosystem.

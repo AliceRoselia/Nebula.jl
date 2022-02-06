@@ -29,7 +29,6 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 * Customizable user interface
 * Asset creation utilities, and good interface for writing asset creation GUI and algorithms (paint brush, blur, inpainting, upscaling brush)
 
-
 ### Roadmap
 
 * Create appropriate files.
@@ -37,5 +36,18 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 * An entity system maintaining components for simple entities.
 * Intelligent entities with their own "vision", such as RGB vision, night vision, X-ray, point-cloud.
 * A game event system where player, entity, or environment triggers an event to happen.
-* Asset maker.
+* Asset maker, protocol for algorithms to communicate with GUIS.
+* Game content manager
+* Multiplayer
+* Servers auto-scaling.
 * ???
+* FUN!
+
+### Contributions
+
+* Implement logics.
+* Refactor codes to make them more general-purpose.
+* Provide new test cases and/or benchmarks.
+* Using the library and providing HONEST feedback.
+* Make request for features to shape the greed.
+* Make suggestions, advices, etc in one's own domain of expertise.

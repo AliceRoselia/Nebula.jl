@@ -53,3 +53,8 @@ There are many ways to contribute to this, including, but not limited to.
 * Using the library and providing HONEST feedback.
 * Making request for features.
 * Making suggestions, advices, etc in one's domain of expertise.
+
+However, there are a few guidelines.
+* More general is better, even if it means more LOC or makes the code subjectively harder to read.
+* More performant code is better. Simple equivalent pseudocode belongs in the documentation.
+* Leverage existing ecosystem first. Don't repeat yourself.

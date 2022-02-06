@@ -46,9 +46,10 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 ### Contributions
 There are many ways to contribute to this, including, but not limited to.
 
-* Implement logics.
-* Refactor codes to make them more general-purpose.
-* Provide new test cases and/or benchmarks.
+* Implementing logics.
+* Refactoring codes to make them more general-purpose.
+* Providing new test cases and/or benchmarks.
+* Providing documentations and/or tutorials.
 * Using the library and providing HONEST feedback.
-* Make request for features to shape the greed.
-* Make suggestions, advices, etc in one's own domain of expertise.
+* Making request for features.
+* Making suggestions, advices, etc in one's domain of expertise.

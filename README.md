@@ -44,6 +44,7 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 * FUN!
 
 ### Contributions
+There are many ways to contribute to this, including, but not limited to.
 
 * Implement logics.
 * Refactor codes to make them more general-purpose.

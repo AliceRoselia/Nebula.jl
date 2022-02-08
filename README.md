@@ -38,6 +38,7 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 * A game event system where player, entity, or environment triggers an event to happen.
 * Asset maker, protocol for algorithms to communicate with GUIS.
 * Game content manager
+* World generation
 * Multiplayer
 * Servers auto-scaling.
 * ???

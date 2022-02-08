@@ -1,5 +1,5 @@
 # Nebula.jl #
-An ambitious game engine leveraging rich Julia ecosystem, inspired by Gamezero.jl and Starlight.jl
+An ambitious game engine leveraging rich Julia ecosystem, inspired by Gamezero.jl and Starlight.jl in its pre-pre-pre-alpha stage.
 
 There are several challenges for games which are still unresolved.
 

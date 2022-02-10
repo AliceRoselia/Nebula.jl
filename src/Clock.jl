@@ -1,21 +1,26 @@
 #My take based on starlight engine.
 
+#TODO: examine the message_fires, examine whether it should fire multiple messages or not, or if we should just have different clocks.
+
 
 mutable struct Clock
     started::Base.Event
     stopped::Bool
     message_fires::Vector{Tuple{float,Function,String}}
     freq::AbstractFloat
+    #TODO: add this.
+    #log::Message_receiver
+    #The clock would receive this message. Then, 
 end
 
 
-Clock() = Clock(Base.Event(), true, [], 0.01667) # default frequency of approximately 60 Hz
+Clock() = Clock(Base.Event(), true, [], (1.0/60)) # default frequency of approximately 60 Hz
   
   
   # RT == "real time"
   # Δ carries the "actual" number of given time units elapsed
 struct RT_SCALE{scale, signature}
-    Δ::AbstractFloat
+    Δ::Float
 end
 const SIG_TIME_COUNT = 0
 const SIG_TIME_TICK = 1
@@ -42,7 +47,8 @@ end
 function sleep_with_message(sleep_time,timescale, message, debug)
   δ = sleep(SLEEP_TIME(sleep_time*timescale))
   sendMessage(message(δ/timescale))
-  @debug debug
+  #TODO: define sendMessage.
+  #@debug debug
 end
 
 nsleep(Δ) = sleep_with_message(Δ,1.0, RT_NSEC, "nanosecond")

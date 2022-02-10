@@ -14,7 +14,7 @@ function initSDL(;buffers=4,samples=4,flags=MIX_INIT_FLAC|MIX_INIT_MP3|MIX_INIT_
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, samples)
     r = SDL_Init(UInt32(SDL_INIT_VIDEO | SDL_INIT_AUDIO))
     if r != 0
-        error("Uanble to initialise SDL: $(getSDLError())")
+        error("Unable to initialise SDL: $(getSDLError())")
     end
     TTF_Init()
 

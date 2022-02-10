@@ -1,4 +1,4 @@
-#A thin SDL wrapper based on starlight and gamezero.
+#A thin SDL wrapper based on Starlight and Gamezero.
 
 #https://github.com/jhigginbotham64/Starlight.jl/blob/main/src/SDL.jl
 #https://github.com/aviks/GameZero.jl/blob/master/src/GameZero.jl

@@ -2,7 +2,7 @@
 
 #TODO: examine the message_fires, examine whether it should fire multiple messages or not, or if we should just have different clocks.
 
-
+#=
 mutable struct Clock
     started::Base.Event
     stopped::Bool
@@ -85,4 +85,30 @@ function shutdown!(c::Clock)
   c.stopped = true
   c.started = Base.Event() # old one remains signaled no matter what, replace
   return false
+end
+
+
+=#
+
+
+
+abstract type Relay{info_in, info_out} end
+abstract type Clock{tick}<:Relay{Nothing, tick} end
+struct Clock_handle{info}<:Relay{info, info}
+    C::Channel{info}
+end
+
+function tick!(X::Clock_handle)
+    wait(X.C)
+    return take!(X.C)
+end
+
+struct standard_clock<:Relay{Float64}
+    t::float64
+end
+
+struct Functional_relay{info_in, info_out} <: Relay{info_in, info_out}
+    C::Channel{info_in}
+    Out::Vector{Channel{info_out}}
+    func::Function
 end

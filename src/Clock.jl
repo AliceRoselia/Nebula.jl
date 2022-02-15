@@ -103,7 +103,7 @@ function tick!(X::Clock_handle)
     return take!(X.C)
 end
 
-struct standard_clock<:Clock{Float64}
+struct Standard_clock<:Clock{Float64}
     t::float64
     freq::float64
     Out::Vector{Channel{Float64}}

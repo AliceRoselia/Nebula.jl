@@ -103,8 +103,9 @@ function tick!(X::Clock_handle)
     return take!(X.C)
 end
 
-struct standard_clock<:Relay{Float64}
+struct standard_clock<:Clock{Float64}
     t::float64
+    freq::float64
 end
 
 struct Functional_relay{info_in, info_out} <: Relay{info_in, info_out}

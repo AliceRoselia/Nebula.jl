@@ -106,7 +106,10 @@ end
 struct standard_clock<:Clock{Float64}
     t::float64
     freq::float64
+    Out::Vector{Channel{Float64}}
 end
+
+
 
 struct Functional_relay{info_in, info_out} <: Relay{info_in, info_out}
     C::Channel{info_in}

@@ -116,3 +116,17 @@ struct Functional_relay{info_in, info_out} <: Relay{info_in, info_out}
     Out::Vector{Channel{info_out}}
     func::Function
 end
+
+function loop!(X::Functional_relay)
+    while true
+        wait(X.C)
+        computed_value = X.func(take!(X.C))
+        for i in X.Out
+            put!(i,computed_value)
+        end
+    end
+end
+
+function start!(arr)
+    #Working in progress.
+end

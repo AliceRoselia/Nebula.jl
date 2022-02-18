@@ -112,6 +112,7 @@ end
 
 
 struct Functional_relay{info_in, info_out} <: Relay{info_in, info_out}
+    #DO NOT abuse this. 
     C::Channel{info_in}
     Out::Vector{Channel{info_out}}
     func::Function

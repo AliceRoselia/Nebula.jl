@@ -59,3 +59,5 @@ However, there are a few guidelines.
 * More general is better, even if it means more LOC or makes the code subjectively harder to read.
 * More performant code is better. Simple equivalent pseudocode belongs in the documentation.
 * Leverage existing ecosystem first. Don't repeat yourself.
+
+![Diagram](/Diagram/Crude_plan.png)

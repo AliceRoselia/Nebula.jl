@@ -60,4 +60,5 @@ However, there are a few guidelines.
 * More performant code is better. Simple equivalent pseudocode belongs in the documentation.
 * Leverage existing ecosystem first. Don't repeat yourself.
 
+### Diagram
 ![Diagram](/Diagram/Crude_plan.png)

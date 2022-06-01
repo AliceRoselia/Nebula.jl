@@ -15,10 +15,8 @@ end
 
 
 Clock() = Clock(Base.Event(), true, [], (1.0/60)) # default frequency of approximately 60 Hz
-  
-  
-  # RT == "real time"
-  # Δ carries the "actual" number of given time units elapsed
+	# RT == "real time"
+    # Δ carries the "actual" number of given time units elapsed
 struct RT_SCALE{scale, signature}
     Δ::Float
 end
@@ -32,23 +30,23 @@ TICK = RT_SCALE{1.0, SIG_TIME_TICK}
 
 
 struct SLEEP_TIME
-  Δ::UInt # time in nanoseconds to sleep for
+    Δ::UInt # time in nanoseconds to sleep for
 end
 
 function Base.sleep(s::SLEEP_TIME)
-  t1 = time_ns()
-  while true
-    if time_ns() - t1 >= s.Δ break end
-    yield()
-  end
-  return time_ns() - t1
+    t1 = time_ns()
+    while true
+        if time_ns() - t1 >= s.Δ break end
+        yield()
+    end
+    return time_ns() - t1
 end
 
 function sleep_with_message(sleep_time,timescale, message, debug)
-  δ = sleep(SLEEP_TIME(sleep_time*timescale))
-  sendMessage(message(δ/timescale))
-  #TODO: define sendMessage.
-  #@debug debug
+    δ = sleep(SLEEP_TIME(sleep_time*timescale))
+    sendMessage(message(δ/timescale))
+    #TODO: define sendMessage.
+    #@debug debug
 end
 
 nsleep(Δ) = sleep_with_message(Δ,1.0, RT_NSEC, "nanosecond")
@@ -58,33 +56,33 @@ ssleep(Δ) = sleep_with_message(Δ,1e9, RT_SEC, "second")
 tick(Δ) = sleep_with_message(Δ,1e9, TICK, "tick")
 
 function job!(c::Clock, f, arg=1)
-  function job()
-    Base.wait(c.started)
-    while !c.stopped
-      f(arg)
+    function job()
+    	Base.wait(c.started)
+    	while !c.stopped
+    		f(arg)
+    	end
     end
-  end
-  schedule(Task(job))
+    schedule(Task(job))
 end
 
 function awake!(c::Clock)
-  for i in c.message_fires
-    job!(c, Δ-> sleep_with_message(Δ,i[1], i[2], i[3]))
-  end
+    for i in c.message_fires
+      job!(c, Δ-> sleep_with_message(Δ,i[1], i[2], i[3]))
+    end
 
-  job!(c, tick, c.freq)
+    job!(c, tick, c.freq)
 
-  c.stopped = false
+    c.stopped = false
 
-  Base.notify(c.started)
+    Base.notify(c.started)
 
-  return true
+    return true
 end
 
 function shutdown!(c::Clock)
-  c.stopped = true
-  c.started = Base.Event() # old one remains signaled no matter what, replace
-  return false
+    c.stopped = true
+    c.started = Base.Event() # old one remains signaled no matter what, replace
+    return false
 end
 
 
@@ -92,42 +90,45 @@ end
 
 
 
-abstract type Relay{info_in, info_out} end
-abstract type Clock{tick}<:Relay{Nothing, tick} end
-struct Clock_handle{info}<:Relay{info, info}
-    C::Channel{info}
+abstract type Relay{info_in,info_out} end
+abstract type Clock{tick} <: Relay{Nothing,tick} end
+struct Clock_handle{info} <: Relay{info,info}
+	C::Channel{info}
 end
 
 function tick!(X::Clock_handle)
-    wait(X.C)
-    return take!(X.C)
+	wait(X.C)
+	return take!(X.C)
 end
 
-struct Standard_clock<:Clock{Float64}
-    t::float64
-    freq::float64
-    Out::Vector{Channel{Float64}}
+struct Standard_clock <: Clock{Float64}
+	t::float64
+	freq::float64
+	Out::Vector{Channel{Float64}}
 end
 
 
 
-struct Functional_relay{info_in, info_out} <: Relay{info_in, info_out}
-    #DO NOT abuse this. 
-    C::Channel{info_in}
-    Out::Vector{Channel{info_out}}
-    func::Function
+struct Functional_relay{info_in,info_out, f<:Function} <: Relay{info_in,info_out}
+	#DO NOT abuse this. 
+	C::Channel{info_in}
+	Out::Vector{Channel{info_out}}
+	func::f
 end
 
 function loop!(X::Functional_relay)
-    while true
-        wait(X.C)
-        computed_value = X.func(take!(X.C))
-        for i in X.Out
-            put!(i,computed_value)
-        end
-    end
+	while true
+		wait(X.C)
+		computed_value = X.func(take!(X.C))
+    	for i in X.Out
+    		put!(i, computed_value)
+    	end
+	end
 end
 
-function start!(arr)
-    #Working in progress.
+function start!(arr::AbstractVector{Relay{Nothing,<:Any}})
+	for i in arr
+		#Start all the clocks.
+	end
+	#Working in progress.
 end

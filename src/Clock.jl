@@ -126,6 +126,12 @@ function loop!(X::Functional_relay)
 	end
 end
 
+#=
+
+TODO: update relay which recomputes every time a value gets updated.
+A merge relay which merges packets together.
+=#
+
 function start!(arr::AbstractVector{Relay{Nothing,<:Any}})
 	for i in arr
 		#Start all the clocks.

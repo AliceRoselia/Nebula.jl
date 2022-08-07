@@ -33,8 +33,9 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 
 ### Roadmap
 
+* Gather enough insights into making the next amazing game.
 * Create appropriate files.
-* Create a basic rendering system for rendering pure 2d maps.
+* Create a basic rendering system for rendering pure 2d maps. Should use minimal windowing libraries such as winit.
 * An entity system maintaining components for simple entities.
 * Intelligent entities with their own "vision", such as RGB vision, night vision, X-ray, point-cloud.
 * A game event system where player, entity, or environment triggers an event to happen.
@@ -45,6 +46,12 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 * Servers auto-scaling.
 * ???
 * FUN!
+
+### Insights
+To make a game with a physics system with particles simulated...
+* Discretize particles into random grids of random orientations.
+* Use magic bb lookup for particle traits.
+* As for souls and events... well... not sure.
 
 ### Contributions
 There are many ways to contribute to this, including, but not limited to.

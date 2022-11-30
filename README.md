@@ -37,12 +37,9 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 
 * Gather enough insights into making the next amazing game.
 * Create appropriate files.
-<<<<<<< HEAD
 * Create a basic rendering system for rendering pure 2d maps.
 * I may have to do an animation maker first to get an idea on how to do abstractions. (Interpolation and multiple dispatch)
-=======
 * Create a basic rendering system for rendering pure 2d maps. Should use minimal windowing libraries such as winit.
->>>>>>> dbda1ca6ea07df07946edf2a299b9da3c6107712
 * An entity system maintaining components for simple entities.
 * Intelligent entities with their own "vision", such as RGB vision, night vision, X-ray, point-cloud.
 * A game event system where player, entity, or environment triggers an event to happen.

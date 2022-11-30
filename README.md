@@ -26,15 +26,18 @@ To achieve this ambition, this library leverages several libraries in the Julia 
 
 * Efficient, scalable physics engine for real or cartoon physics system as you desire. 
 * Powerful AI
+* Good lightning system (perhaps lightning is all you need)
+* Good sound system (ideally, even collisions between background objects make sound).
 * Entity information system, generating information "detected" by entity to be processed or rendered.
 * Content manager utilities for managing game options and extensions.
 * Customizable user interface
 * Asset creation utilities, and good interface for writing asset creation GUI and algorithms (paint brush, blur, inpainting, upscaling brush)
-
+* Good abstraction in asset creation (eg: re-use eye assets without looking copy-pasted) 
 ### Roadmap
 
 * Create appropriate files.
 * Create a basic rendering system for rendering pure 2d maps.
+* I may have to do an animation maker first to get an idea on how to do abstractions. (Interpolation and multiple dispatch)
 * An entity system maintaining components for simple entities.
 * Intelligent entities with their own "vision", such as RGB vision, night vision, X-ray, point-cloud.
 * A game event system where player, entity, or environment triggers an event to happen.

@@ -18,8 +18,9 @@ The author believes that it is time for game developers to abandon the old scrip
 To achieve this ambition, this library leverages several libraries in the Julia ecosystem.
 * Leveraging the Julia's ModelingToolkit ecosystem, game developers can make their own physics system easily!
 * With help from Julia's GPU ecosystem, GPGPU compute rendering offers the flexibility of software rendering without sacrificing hardware power!
+* High performance simulation of entities/particle/etc leveraging Julia's HPC ecosystem.
 * Juliaaudio ecosystem for audio processing and more!
-* To control entities, we feature OverSeer, a powerful ECS system!
+* To control entities, Julia offers an ECS of your choice such as OverSeer, a powerful ECS system!
 * When it comes to AI, Flux and Alphazero.jl come to mind!
 * Last, but not least, proudly in Julia language itself, this engine supports game modding!
 ### Planned Features #
